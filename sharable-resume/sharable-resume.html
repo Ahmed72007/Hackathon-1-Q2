@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> Share Resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <script src="edit-resume.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .resume-output {
+            margin-top: 20px;
+           display: none; 
+        }
+        .resume-output {
+    background: #fae5e5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.resume-output h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.resume-output p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.resume-output h3 {
+    font-size: 1.5em;
+    color: #007BFF;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.resume-output img {
+    display: block;
+    margin: 0 auto 20px;
+    border: 3px solid #007BFF;
+}
+
+.resume-output .resume-section {
+    margin-bottom: 15px;
+}
+
+button {
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Builder</h1>
+        <form id="resumeForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="picture">Upload a Picture:</label>
+            <input type="file" id="picture" accept="image/*" required>
+
+            <label for="experience">Experience:</label>
+            <textarea id="experience" required></textarea>
+
+            <label for="education">Education:</label>
+            <textarea id="education" required></textarea>
+
+            <label for="skills">Skills:</label>
+            <textarea id="skills" required></textarea>
+
+            <button type="submit">Generate Resume</button>
+            <button id="shareButton">Share Resume</button>
+            <input type="text" id="resumeLink" readonly>
+            <button id="downloadButton">Download as PDF</button>
+
+            
+        </form>
+
+        <div id="resumeOutput" class="resume-output"></div>
+    </div>
+
+   
+</body>
+</html>
